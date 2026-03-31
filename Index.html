@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>David Kithi | Portfolio</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <nav>
+    <div class="nav-container">
+      <div class="logo">David Kithi</div>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      <button class="menu-toggle" id="menuToggle">☰</button>
+    </div>
+  </nav>
+
+  <section class="hero">
+    <div>
+      <h1>David Kithi</h1>
+      <p style="font-size:1.4rem; margin:1.5rem 0;">Hi, I'm David 👋</p>
+      <p style="font-size:1.2rem; max-width:600px; margin:0 auto 2rem;">A passionate junior web developer based in Nairobi, Kenya.</p>
+      <a href="projects.html" style="background:#2563eb;color:white;padding:14px 36px;border-radius:50px;text-decoration:none;">View My Projects</a>
+    </div>
+  </section>
+
+  <script>
+    document.getElementById('menuToggle').addEventListener('click', () => {
+      document.getElementById('navLinks').classList.toggle('active');
+    });
+  </script>
+</body>
+</html>
