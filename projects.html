@@ -5,8 +5,124 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Projects - David Kithi</title>
   <link rel="stylesheet" href="styles.css">
+  <style>
+    .projects-hero {
+      background: linear-gradient(135deg, rgba(15,23,64,0.60) 0%, rgba(37,99,235,0.50) 100%),
+        url('https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=2000&q=80') center/cover no-repeat;
+      color: white;
+      text-align: center;
+      padding: 5rem 2rem 4rem;
+    }
+    .projects-hero h1 { margin-bottom: 0.5rem; }
+    .projects-hero p { font-size: 1.1rem; opacity: 0.85; }
+
+    .projects-section {
+      max-width: 900px;
+      margin: 4rem auto;
+      padding: 0 2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    .project-card {
+      background: white;
+      border-radius: 14px;
+      border: 1px solid #e2e8f0;
+      padding: 2rem 2.2rem;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.06);
+      transition: transform 0.25s, box-shadow 0.25s;
+    }
+    .project-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 32px rgba(37,99,235,0.10);
+    }
+
+    .project-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 0.7rem;
+    }
+    .project-header h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.6rem;
+      color: var(--text);
+    }
+    .project-year {
+      font-size: 0.95rem;
+      color: var(--gray);
+      margin-top: 0.3rem;
+      white-space: nowrap;
+    }
+
+    .project-desc {
+      color: var(--gray);
+      font-size: 1rem;
+      line-height: 1.7;
+      margin-bottom: 1.4rem;
+    }
+
+    .project-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .tech-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+    .tag {
+      background: #eff6ff;
+      color: var(--primary);
+      border: 1px solid #bfdbfe;
+      padding: 0.3rem 0.85rem;
+      border-radius: 20px;
+      font-size: 0.88rem;
+      font-weight: 500;
+    }
+
+    .btn-demo {
+      background: var(--primary);
+      color: white;
+      padding: 0.65rem 1.4rem;
+      border-radius: 30px;
+      text-decoration: none;
+      font-size: 0.95rem;
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      transition: background 0.2s, transform 0.2s;
+      white-space: nowrap;
+    }
+    .btn-demo:hover {
+      background: #1d4ed8;
+      transform: translateY(-1px);
+    }
+    /* placeholder links styled differently so it's obvious they're not live yet */
+    .btn-demo.placeholder {
+      background: var(--gray);
+      cursor: not-allowed;
+      opacity: 0.7;
+    }
+    .btn-demo.placeholder:hover {
+      background: var(--gray);
+      transform: none;
+    }
+
+    @media (max-width: 600px) {
+      .project-footer { flex-direction: column; align-items: flex-start; }
+      .project-header { flex-direction: column; gap: 0.3rem; }
+    }
+  </style>
 </head>
 <body>
+
   <nav>
     <div class="nav-container">
       <div class="logo">David Kithi</div>
@@ -19,26 +135,93 @@
       <button class="menu-toggle" id="menuToggle">☰</button>
     </div>
   </nav>
-  <section class="gallery" style="max-width:1100px;margin:5rem auto;padding:0 2rem;">
-    <h2>My Projects</h2>
-    <div class="gallery-grid">
-      <div class="gallery-item">
-        <img src="https://picsum.photos/600/400?random=1" alt="Project 1">
-        <div class="overlay"><h3>E-Commerce Platform</h3><p>Fully responsive online store</p></div>
+
+  <!-- Page hero -->
+  <div class="projects-hero">
+    <h1>My Projects</h1>
+    <p>A selection of things I've built</p>
+  </div>
+
+  <!-- Project cards -->
+  <section class="projects-section">
+
+    <div class="project-card">
+      <div class="project-header">
+        <h3>ShopEase</h3>
+        <span class="project-year">2024</span>
       </div>
-      <div class="gallery-item">
-        <img src="https://picsum.photos/600/400?random=2" alt="Project 2">
-        <div class="overlay"><h3>Admin Dashboard</h3><p>Clean analytics interface</p></div>
-      </div>
-      <div class="gallery-item">
-        <img src="https://picsum.photos/600/400?random=3" alt="Project 3">
-        <div class="overlay"><h3>Restaurant Management</h3><p>Modern food ordering system</p></div>
-      </div>
-      <div class="gallery-item">
-        <img src="https://picsum.photos/600/400?random=4" alt="Project 4">
-        <div class="overlay"><h3>This Portfolio</h3><p>Mobile-first responsive design</p></div>
+      <p class="project-desc">
+        A full-stack e-commerce web app with product listings, cart management, and user authentication.
+        Built with a clean responsive UI.
+      </p>
+      <div class="project-footer">
+        <div class="tech-tags">
+          <span class="tag">React</span>
+          <span class="tag">Node.js</span>
+          <span class="tag">MongoDB</span>
+        </div>
+        <!-- Replace # with your live URL when ready -->
+        <a href="#" class="btn-demo placeholder">Live Demo ↗</a>
       </div>
     </div>
+
+    <div class="project-card">
+      <div class="project-header">
+        <h3>TaskFlow</h3>
+        <span class="project-year">2024</span>
+      </div>
+      <p class="project-desc">
+        A productivity task manager with drag-and-drop boards, priority labels, and deadline tracking.
+        Fully responsive across devices.
+      </p>
+      <div class="project-footer">
+        <div class="tech-tags">
+          <span class="tag">JavaScript</span>
+          <span class="tag">CSS3</span>
+          <span class="tag">Express</span>
+        </div>
+        <a href="#" class="btn-demo placeholder">Live Demo ↗</a>
+      </div>
+    </div>
+
+    <div class="project-card">
+      <div class="project-header">
+        <h3>WeatherNow</h3>
+        <span class="project-year">2023</span>
+      </div>
+      <p class="project-desc">
+        Real-time weather app consuming a public API. Displays current conditions, 5-day forecast,
+        and location-based search.
+      </p>
+      <div class="project-footer">
+        <div class="tech-tags">
+          <span class="tag">HTML</span>
+          <span class="tag">CSS</span>
+          <span class="tag">JavaScript</span>
+        </div>
+        <a href="#" class="btn-demo placeholder">Live Demo ↗</a>
+      </div>
+    </div>
+
+    <div class="project-card">
+      <div class="project-header">
+        <h3>This Portfolio</h3>
+        <span class="project-year">2024</span>
+      </div>
+      <p class="project-desc">
+        Mobile-first personal portfolio website built with pure HTML, CSS, and JavaScript.
+        Features responsive navigation, project gallery, and a contact form.
+      </p>
+      <div class="project-footer">
+        <div class="tech-tags">
+          <span class="tag">HTML</span>
+          <span class="tag">CSS</span>
+          <span class="tag">JavaScript</span>
+        </div>
+        <a href="https://ray4240.github.io/iyf-s10-week-02-ray4240/" class="btn-demo" target="_blank">Live Demo ↗</a>
+      </div>
+    </div>
+
   </section>
 
   <footer>
