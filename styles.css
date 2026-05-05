@@ -62,6 +62,7 @@ nav {
 }
 
 /* Hero */
+/* Hero */
 .hero {
   min-height: 90vh;
   display: flex;
@@ -69,8 +70,45 @@ nav {
   justify-content: center;
   text-align: center;
   color: white;
-  background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://picsum.photos/id/1015/2000/1200') center/cover;
   padding: 2rem;
+  position: relative;
+  overflow: hidden;
+  background: #0a0f1e;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 80% 60% at 50% 40%, rgba(37, 99, 235, 0.25) 0%, transparent 70%),
+    radial-gradient(ellipse 50% 40% at 20% 80%, rgba(99, 102, 241, 0.15) 0%, transparent 60%),
+    radial-gradient(ellipse 40% 30% at 80% 20%, rgba(6, 182, 212, 0.12) 0%, transparent 60%);
+  z-index: 0;
+}
+
+.hero::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(37, 99, 235, 0.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(37, 99, 235, 0.08) 1px, transparent 1px);
+  background-size: 60px 60px;
+  mask-image: radial-gradient(ellipse 90% 80% at 50% 50%, black 40%, transparent 100%);
+  -webkit-mask-image: radial-gradient(ellipse 90% 80% at 50% 50%, black 40%, transparent 100%);
+  z-index: 0;
+  animation: gridPulse 6s ease-in-out infinite;
+}
+
+@keyframes gridPulse {
+  0%, 100% { opacity: 0.6; }
+  50% { opacity: 1; }
+}
+
+.hero > * {
+  position: relative;
+  z-index: 1;
 }
 
 /* About - Circular Profile */
