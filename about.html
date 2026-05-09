@@ -3,28 +3,310 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!-- put name of the website here -->
-  <title>About - </title>
+  <title>About - David Kithi</title>
   <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    /* ── HERO BANNER ── */
+    .about-hero {
+      background: linear-gradient(135deg, #0f1740 0%, #1a2f6e 60%, #2563eb 100%);
+      color: white;
+      padding: 5rem 2rem 4rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .about-hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at 70% 50%, rgba(37,99,235,0.35) 0%, transparent 70%);
+    }
+    .about-hero-inner {
+      position: relative;
+      z-index: 1;
+    }
+    .about-hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.2rem, 5vw, 3.4rem);
+      font-weight: 700;
+      margin-bottom: 0.6rem;
+      letter-spacing: -0.5px;
+    }
+    .about-hero p {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 1.05rem;
+      opacity: 0.75;
+      font-weight: 300;
+    }
+
+    /* ── MAIN LAYOUT ── */
+    .about-body {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 4rem 2rem 5rem;
+    }
+
+    /* ── MONOGRAM AVATAR (no photo needed) ── */
+    .monogram-wrap {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 3rem;
+    }
+    .monogram {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #0f1740, #2563eb);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Playfair Display', serif;
+      font-size: 2.6rem;
+      font-weight: 700;
+      color: white;
+      letter-spacing: 2px;
+      box-shadow: 0 8px 32px rgba(37,99,235,0.25);
+      position: relative;
+    }
+    .monogram::after {
+      content: '';
+      position: absolute;
+      inset: -4px;
+      border-radius: 50%;
+      border: 2px solid rgba(37,99,235,0.3);
+    }
+
+    /* ── BIO SECTION ── */
+    .bio {
+      text-align: center;
+      margin-bottom: 4rem;
+    }
+    .bio h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem;
+      color: #0f1740;
+      margin-bottom: 1.2rem;
+    }
+    .bio p {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 1.05rem;
+      color: #475569;
+      line-height: 1.85;
+      max-width: 620px;
+      margin: 0 auto 1rem;
+      font-weight: 300;
+    }
+
+    /* ── DIVIDER ── */
+    .divider {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin: 3rem 0 2.5rem;
+    }
+    .divider::before, .divider::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: #e2e8f0;
+    }
+    .divider span {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.3rem;
+      color: #0f1740;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+
+    /* ── SKILLS GRID ── */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 1.2rem;
+    }
+    .skill-card {
+      background: white;
+      border: 1px solid #e2e8f0;
+      border-radius: 14px;
+      padding: 1.6rem 1.4rem;
+      text-align: center;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+      transition: transform 0.25s, box-shadow 0.25s, border-color 0.25s;
+      position: relative;
+      overflow: hidden;
+    }
+    .skill-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, #2563eb, #60a5fa);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.3s ease;
+    }
+    .skill-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 32px rgba(37,99,235,0.10);
+      border-color: #bfdbfe;
+    }
+    .skill-card:hover::before {
+      transform: scaleX(1);
+    }
+    .skill-icon {
+      font-size: 2rem;
+      margin-bottom: 0.7rem;
+      display: block;
+    }
+    .skill-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: #0f1740;
+      margin-bottom: 0.3rem;
+    }
+    .skill-desc {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.83rem;
+      color: #94a3b8;
+      font-weight: 300;
+      line-height: 1.4;
+    }
+
+    /* ── FACTS ROW ── */
+    .facts {
+      display: flex;
+      justify-content: center;
+      gap: 3rem;
+      flex-wrap: wrap;
+      margin-top: 3.5rem;
+      padding: 2.5rem 2rem;
+      background: #f8fafc;
+      border-radius: 16px;
+      border: 1px solid #e2e8f0;
+    }
+    .fact {
+      text-align: center;
+    }
+    .fact-number {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.2rem;
+      font-weight: 700;
+      color: #2563eb;
+      line-height: 1;
+      margin-bottom: 0.3rem;
+    }
+    .fact-label {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.85rem;
+      color: #94a3b8;
+      font-weight: 400;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    /* ── ANIMATIONS ── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .monogram-wrap  { animation: fadeUp 0.5s ease both; }
+    .bio            { animation: fadeUp 0.5s 0.1s ease both; }
+    .skills-grid    { animation: fadeUp 0.5s 0.2s ease both; }
+    .facts          { animation: fadeUp 0.5s 0.3s ease both; }
+
+    @media (max-width: 600px) {
+      .facts { gap: 2rem; }
+      .skills-grid { grid-template-columns: 1fr 1fr; }
+    }
+  </style>
 </head>
 <body>
 
-  <section class="about">
-    <div>
-      <h2>About Me</h2>
-      <p>Hi, I'm David Kithi, a passionate junior web developer based in Nairobi, Kenya. I specialize in creating responsive and user-friendly websites using modern technologies.</p>
-      <p>I enjoy solving problems, learning new tools, and building projects that make an impact.</p>
+  <nav>
+    <div class="nav-container">
+      <div class="logo">David Kithi</div>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html" class="active">About</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      <button class="menu-toggle" id="menuToggle">☰</button>
+    </div>
+  </nav>
 
-      <h2 style="margin-top:3rem;">My Skills</h2>
-      <div class="skills">
-        <div class="skill-item">🌐 HTML <span style="font-size:0.9rem;color:var(--gray);">semantic markup and page structure</span></div>
-        <div class="skill-item">🎨 CSS <span style="font-size:0.9rem;color:var(--gray);">styling, layout and animations</span></div>
-        <div class="skill-item">⚡ JavaScript <span style="font-size:0.9rem;color:var(--gray);">interactive features and logic</span></div>
-        <div class="skill-item">📱 Responsive Design <span style="font-size:0.9rem;color:var(--gray);">gift-your websites</span></div>
+  <!-- HERO -->
+  <div class="about-hero">
+    <div class="about-hero-inner">
+      <h1>About Me</h1>
+      <p>Developer. Problem solver. Lifelong learner.</p>
+    </div>
+  </div>
+
+  <!-- BODY -->
+  <div class="about-body">
+
+    <!-- Monogram (replaces photo) -->
+    <div class="monogram-wrap">
+      <div class="monogram">DK</div>
+    </div>
+
+    <!-- Bio -->
+    <div class="bio">
+      <h2>Hi, I'm David Kithi</h2>
+      <p>A passionate junior web developer based in Nairobi, Kenya. I specialize in creating responsive and user-friendly websites using modern technologies.</p>
+      <p>I enjoy solving problems, learning new tools, and building projects that make a real impact. Every line of code I write is a step toward something better.</p>
+    </div>
+
+    <!-- Skills -->
+    <div class="divider"><span>My Skills</span></div>
+
+    <div class="skills-grid">
+      <div class="skill-card">
+        <span class="skill-icon">🌐</span>
+        <div class="skill-name">HTML</div>
+        <div class="skill-desc">Semantic markup and page structure</div>
+      </div>
+      <div class="skill-card">
+        <span class="skill-icon">🎨</span>
+        <div class="skill-name">CSS</div>
+        <div class="skill-desc">Styling, layouts and animations</div>
+      </div>
+      <div class="skill-card">
+        <span class="skill-icon">⚡</span>
+        <div class="skill-name">JavaScript</div>
+        <div class="skill-desc">Interactive features and logic</div>
+      </div>
+      <div class="skill-card">
+        <span class="skill-icon">📱</span>
+        <div class="skill-name">Responsive</div>
+        <div class="skill-desc">Mobile-first, every screen size</div>
       </div>
     </div>
-    <img src="assets/images/profile.jpg" alt="Jane Doe" class="profile-photo">
-  </section>
+
+    <!-- Quick facts -->
+    <div class="facts">
+      <div class="fact">
+        <div class="fact-number">4+</div>
+        <div class="fact-label">Projects Built</div>
+      </div>
+      <div class="fact">
+        <div class="fact-number">4</div>
+        <div class="fact-label">Core Skills</div>
+      </div>
+      <div class="fact">
+        <div class="fact-number">100%</div>
+        <div class="fact-label">Passion</div>
+      </div>
+      <div class="fact">
+        <div class="fact-number">NBI</div>
+        <div class="fact-label">Based in Kenya</div>
+      </div>
+    </div>
+
+  </div>
 
   <footer>
     <p>&copy; 2026 David Kithi. Built with ❤️ and pure CSS</p>
@@ -35,5 +317,6 @@
       document.getElementById('navLinks').classList.toggle('active');
     });
   </script>
+
 </body>
 </html>
