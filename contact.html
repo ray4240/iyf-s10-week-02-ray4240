@@ -5,6 +5,157 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Contact - David Kithi</title>
   <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    .contact-hero {
+      background: linear-gradient(135deg, #0f1740 0%, #1a2f6e 60%, #2563eb 100%);
+      color: white;
+      padding: 5rem 2rem 4rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .contact-hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at 30% 50%, rgba(37,99,235,0.35) 0%, transparent 70%);
+    }
+    .contact-hero-inner { position: relative; z-index: 1; }
+    .contact-hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.2rem, 5vw, 3.4rem);
+      font-weight: 700;
+      margin-bottom: 0.6rem;
+    }
+    .contact-hero p {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 1.05rem;
+      opacity: 0.75;
+      font-weight: 300;
+    }
+    .contact-body {
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 4rem 2rem 5rem;
+      display: grid;
+      grid-template-columns: 1fr 1.6fr;
+      gap: 3rem;
+      align-items: start;
+    }
+    .contact-info h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.8rem;
+      color: #0f1740;
+      margin-bottom: 1rem;
+    }
+    .contact-info p {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.97rem;
+      color: #64748b;
+      line-height: 1.8;
+      font-weight: 300;
+      margin-bottom: 2rem;
+    }
+    .contact-details { display: flex; flex-direction: column; gap: 1rem; }
+    .contact-detail-item { display: flex; align-items: center; gap: 0.9rem; }
+    .contact-detail-icon {
+      width: 42px; height: 42px;
+      border-radius: 10px;
+      background: #eff6ff;
+      border: 1px solid #bfdbfe;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.1rem; flex-shrink: 0;
+    }
+    .contact-detail-text { font-family: 'DM Sans', sans-serif; }
+    .contact-detail-text .label {
+      font-size: 0.75rem; color: #94a3b8;
+      text-transform: uppercase; letter-spacing: 0.06em; font-weight: 500;
+    }
+    .contact-detail-text .value { font-size: 0.95rem; color: #1e293b; }
+    .contact-card {
+      background: white;
+      border: 1px solid #e2e8f0;
+      border-radius: 20px;
+      padding: 2.5rem 2.2rem;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.06);
+    }
+    .contact-card h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.4rem; color: #0f1740;
+      margin-bottom: 1.8rem;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid #f1f5f9;
+    }
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+      margin-bottom: 0;
+    }
+    .form-group { display: flex; flex-direction: column; gap: 0.4rem; margin-bottom: 1rem; }
+    .form-group label {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.8rem; font-weight: 500; color: #475569;
+      text-transform: uppercase; letter-spacing: 0.05em;
+    }
+    .form-group input,
+    .form-group textarea {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.97rem; color: #1e293b;
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 10px;
+      padding: 0.82rem 1rem;
+      width: 100%; box-sizing: border-box;
+      transition: border-color 0.2s, box-shadow 0.2s, background 0.2s;
+      outline: none; resize: vertical;
+    }
+    .form-group input::placeholder,
+    .form-group textarea::placeholder { color: #cbd5e1; font-weight: 300; }
+    .form-group input:focus,
+    .form-group textarea:focus {
+      border-color: #2563eb; background: white;
+      box-shadow: 0 0 0 3px rgba(37,99,235,0.08);
+    }
+    .form-group textarea { min-height: 140px; }
+    .btn-submit {
+      width: 100%;
+      background: linear-gradient(135deg, #1d4ed8, #2563eb);
+      color: white;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 1rem; font-weight: 500;
+      border: none; border-radius: 12px;
+      padding: 0.95rem 1.5rem;
+      cursor: pointer;
+      transition: transform 0.2s, box-shadow 0.2s;
+      letter-spacing: 0.02em; margin-top: 0.5rem;
+    }
+    .btn-submit:hover:not(:disabled) {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(37,99,235,0.28);
+    }
+    .btn-submit:disabled { opacity: 0.7; cursor: not-allowed; }
+    .success-msg { display: none; text-align: center; padding: 2.5rem 1rem; }
+    .success-icon {
+      width: 64px; height: 64px;
+      background: #d1fae5; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.8rem; margin: 0 auto 1.2rem;
+    }
+    .success-msg h4 { font-family: 'Playfair Display', serif; font-size: 1.4rem; color: #0f1740; margin-bottom: 0.5rem; }
+    .success-msg p { font-family: 'DM Sans', sans-serif; font-size: 0.95rem; color: #64748b; font-weight: 300; }
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .contact-info { animation: fadeUp 0.5s 0.1s ease both; }
+    .contact-card  { animation: fadeUp 0.5s 0.2s ease both; }
+    @media (max-width: 700px) {
+      .contact-body { grid-template-columns: 1fr; gap: 2rem; padding: 2.5rem 1.2rem 4rem; }
+      .form-row { grid-template-columns: 1fr; }
+    }
+  </style>
 </head>
 <body>
 
@@ -15,95 +166,110 @@
         <li><a href="index.html">Home</a></li>
         <li><a href="about.html">About</a></li>
         <li><a href="projects.html">Projects</a></li>
-        <li><a href="contact.html">Contact</a></li>
+        <li><a href="contact.html" class="active">Contact</a></li>
       </ul>
       <button class="menu-toggle" id="menuToggle">☰</button>
     </div>
   </nav>
 
-  <section class="contact">
-    <h2>Contact Me</h2>
-    <p style="font-size:1.2rem;margin:1.5rem 0;">Feel free to reach out for collaborations or opportunities.</p>
+  <div class="contact-hero">
+    <div class="contact-hero-inner">
+      <h1>Contact Me</h1>
+      <p>Let's build something great together.</p>
+    </div>
+  </div>
 
-    <!-- SUCCESS MESSAGE (hidden by default) -->
-    <div id="successMsg" style="display:none; background:#d1fae5; color:#065f46; border:1px solid #6ee7b7;
-         padding:1rem 1.5rem; border-radius:10px; max-width:500px; margin:0 auto 1.5rem; text-align:center; font-weight:500;">
-      Message sent! I'll get back to you soon.
+  <div class="contact-body">
+
+    <div class="contact-info">
+      <h2>Get in Touch</h2>
+      <p>Feel free to reach out for collaborations, freelance opportunities, or just to say hi. I'll get back to you as soon as I can.</p>
+      <div class="contact-details">
+        <div class="contact-detail-item">
+          <div class="contact-detail-icon">📧</div>
+          <div class="contact-detail-text">
+            <div class="label">Email</div>
+            <div class="value">davidhamisi306@gmail.com</div>
+          </div>
+        </div>
+        <div class="contact-detail-item">
+          <div class="contact-detail-icon">📍</div>
+          <div class="contact-detail-text">
+            <div class="label">Location</div>
+            <div class="value">Nairobi, Kenya</div>
+          </div>
+        </div>
+        <div class="contact-detail-item">
+          <div class="contact-detail-icon">💼</div>
+          <div class="contact-detail-text">
+            <div class="label">Availability</div>
+            <div class="value">Open to opportunities</div>
+          </div>
+        </div>
+      </div>
     </div>
 
-    <div class="contact-form">
-      <!-- ACTION: replace with your Formspree URL e.g. https://formspree.io/f/meenrpvn -->
+    <div class="contact-card">
+      <h3>Send a Message</h3>
+
+      <div class="success-msg" id="successMsg">
+        <div class="success-icon">✓</div>
+        <h4>Message Sent!</h4>
+        <p>Thanks for reaching out. I'll get back to you soon.</p>
+      </div>
+
       <form id="contactForm" action="https://formspree.io/f/meenrpvn" method="POST">
-
-        <!-- Hidden: redirect back to this page after submit -->
         <input type="hidden" name="_subject" value="New message from portfolio contact form" />
-
-        <input
-          type="text"
-          name="name"
-          placeholder="Your name"
-          required
-        />
-        <input
-          type="email"
-          name="email"
-          placeholder="Your email"
-          required
-        />
-        <textarea
-          name="message"
-          placeholder="Write your message here"
-          rows="5"
-          required
-        ></textarea>
-
-        <button type="submit" id="submitBtn">Send Message</button>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="name">Your Name</label>
+            <input type="text" id="name" name="name" placeholder="e.g. John Doe" required />
+          </div>
+          <div class="form-group">
+            <label for="email">Email Address</label>
+            <input type="email" id="email" name="email" placeholder="you@example.com" required />
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="message">Message</label>
+          <textarea id="message" name="message" placeholder="Tell me about your project or just say hello..." required></textarea>
+        </div>
+        <button type="submit" class="btn-submit" id="submitBtn">Send Message &rarr;</button>
       </form>
     </div>
-  </section>
+
+  </div>
 
   <footer>
     <p>&copy; 2026 David Kithi. Built with ❤️ and pure CSS</p>
   </footer>
 
   <script>
-    // Nav toggle
     document.getElementById('menuToggle').addEventListener('click', () => {
       document.getElementById('navLinks').classList.toggle('active');
     });
-
-    // Form submission with loading state + success message
     const form = document.getElementById('contactForm');
     const btn = document.getElementById('submitBtn');
     const successMsg = document.getElementById('successMsg');
-
     form.addEventListener('submit', async function (e) {
       e.preventDefault();
-
-      // Show loading state
       btn.textContent = 'Sending...';
       btn.disabled = true;
-
       try {
         const response = await fetch(form.action, {
           method: 'POST',
           body: new FormData(form),
           headers: { 'Accept': 'application/json' }
         });
-
         if (response.ok) {
-          // Success
-          form.reset();
           form.style.display = 'none';
           successMsg.style.display = 'block';
         } else {
-          // Formspree returned an error
-          btn.textContent = 'Failed to send. Try again.';
+          btn.textContent = 'Failed — try again';
           btn.disabled = false;
         }
       } catch (err) {
-        // Network error
-        btn.textContent = 'Network error. Try again.';
+        btn.textContent = 'Network error — try again';
         btn.disabled = false;
       }
     });
